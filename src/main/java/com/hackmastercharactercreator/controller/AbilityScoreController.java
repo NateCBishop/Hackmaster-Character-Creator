@@ -19,4 +19,10 @@ public class AbilityScoreController {
         AbilityScoreDto strengthAbilityScoreDto = abilityScoreService.getStrengthAbilityScoreStats(abilityScore);
         return strengthAbilityScoreDto != null ? new ResponseEntity<>(strengthAbilityScoreDto, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/dexterity/{abilityScore}")
+    public ResponseEntity<AbilityScoreDto> getDexterityAbilityScoreStats(@PathVariable Double abilityScore) {
+        AbilityScoreDto dexterityAbilityScoreDto = abilityScoreService.getDexterityAbilityScoreStats(abilityScore);
+        return dexterityAbilityScoreDto != null ? new ResponseEntity<>(dexterityAbilityScoreDto, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

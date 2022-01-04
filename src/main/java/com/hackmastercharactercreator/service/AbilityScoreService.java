@@ -16,11 +16,16 @@ public class AbilityScoreService {
 
     public AbilityScoreDto getStrengthAbilityScoreStats(Double abilityScore) {
         Map<Double, AbilityScoreDto> strengthMap = abilityStore.getStrengthMap();
-        return strengthMap.get(findClosestButNotLess(abilityScore, strengthMap));
+        return strengthMap.get(findClosestButNotMore(abilityScore, strengthMap));
+    }
+
+    public AbilityScoreDto getDexterityAbilityScoreStats(Double abilityScore) {
+        Map<Double, AbilityScoreDto> agilityMap = abilityStore.getAgilityMap();
+        return agilityMap.get(findClosestButNotMore(abilityScore, agilityMap));
     }
 
 
-    private Double findClosestButNotLess(Double abilityScore, Map<Double, AbilityScoreDto> abilityScoreMap) {
+    private Double findClosestButNotMore(Double abilityScore, Map<Double, AbilityScoreDto> abilityScoreMap) {
         return abilityScoreMap.keySet()
                 .stream()
                 .filter(key -> key <= abilityScore)

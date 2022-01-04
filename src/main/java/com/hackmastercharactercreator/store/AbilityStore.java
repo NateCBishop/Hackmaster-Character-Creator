@@ -1,6 +1,7 @@
 package com.hackmastercharactercreator.store;
 
 import com.hackmastercharactercreator.dto.abilityScore.AbilityScoreDto;
+import com.hackmastercharactercreator.dto.abilityScore.DexterityAbilityScoreDto;
 import com.hackmastercharactercreator.dto.abilityScore.StrengthAbilityScoreDto;
 import org.springframework.stereotype.Component;
 
@@ -11,14 +12,20 @@ import java.util.Map;
 @Component
 public class AbilityStore {
     Map<Double, AbilityScoreDto> strengthMap = new HashMap<>();
+    Map<Double, AbilityScoreDto> dexterityMap = new HashMap<>();
 
     @PostConstruct
     public void initMaps() {
         initStrengthMap();
+        initDexterityMap();
     }
 
     public Map<Double, AbilityScoreDto> getStrengthMap() {
         return strengthMap;
+    }
+
+    public Map<Double, AbilityScoreDto> getAgilityMap() {
+        return dexterityMap;
     }
 
     private void initStrengthMap() {
@@ -71,5 +78,57 @@ public class AbilityStore {
         strengthMap.put(24.0, new StrengthAbilityScoreDto(24.0, 6, 12, 1200, 1440, "19(16)", 97));
         strengthMap.put(24.51, new StrengthAbilityScoreDto(24.51, 6, 12, 1300, 1540, "19(17)", 98));
         strengthMap.put(25.0, new StrengthAbilityScoreDto(25.0, 7, 14, 1500, 1750, "19(18)", 99));
+    }
+
+    private void initDexterityMap() {
+        dexterityMap.put(1.0, new DexterityAbilityScoreDto(1.0, 5, -5, -6));
+        dexterityMap.put(1.51, new DexterityAbilityScoreDto(1.51, 5, -5, -5));
+        dexterityMap.put(2.0, new DexterityAbilityScoreDto(2.0, 4, -5, -5));
+        dexterityMap.put(2.51, new DexterityAbilityScoreDto(2.51, 4, -4, -5));
+        dexterityMap.put(3.0, new DexterityAbilityScoreDto(3.0, 4, -4, -4));
+        dexterityMap.put(3.51, new DexterityAbilityScoreDto(3.51, 3, -4, -4));
+        dexterityMap.put(4.0, new DexterityAbilityScoreDto(4.0, 3, -3, -4));
+        dexterityMap.put(4.51, new DexterityAbilityScoreDto(4.51, 3, -3, -3));
+        dexterityMap.put(5.0, new DexterityAbilityScoreDto(5.0, 2, -3, -3));
+        dexterityMap.put(5.51, new DexterityAbilityScoreDto(5.51, 2, -2, -3));
+        dexterityMap.put(6.0, new DexterityAbilityScoreDto(6.0, 2, -2, -2));
+        dexterityMap.put(6.51, new DexterityAbilityScoreDto(6.51, 1, -2, -2));
+        dexterityMap.put(7.0, new DexterityAbilityScoreDto(7.0, 1, -1, -2));
+        dexterityMap.put(7.51, new DexterityAbilityScoreDto(7.51, 1, -1, -1));
+        dexterityMap.put(8.0, new DexterityAbilityScoreDto(8.0, 0, -1, -1));
+        dexterityMap.put(8.51, new DexterityAbilityScoreDto(8.51, 0, 0, -1));
+        dexterityMap.put(9.0, new DexterityAbilityScoreDto(9.0, 0, 0, 0));
+        dexterityMap.put(9.51, new DexterityAbilityScoreDto(9.51, 0, 0, 0));
+        dexterityMap.put(10.0, new DexterityAbilityScoreDto(10.0, 0, 0, 0));
+        dexterityMap.put(10.51, new DexterityAbilityScoreDto(10.51, 0, 0, 0));
+        dexterityMap.put(11.0, new DexterityAbilityScoreDto(11.0, 0, 0, 0));
+        dexterityMap.put(11.51, new DexterityAbilityScoreDto(11.51, 0, 0, 0));
+        dexterityMap.put(12.0, new DexterityAbilityScoreDto(12.0, 0, 0, 0));
+        dexterityMap.put(12.51, new DexterityAbilityScoreDto(12.51, 0, 0, 1));
+        dexterityMap.put(13.0, new DexterityAbilityScoreDto(13.0, 0, 1, 1));
+        dexterityMap.put(13.51, new DexterityAbilityScoreDto(13.51, -1, 1, 1));
+        dexterityMap.put(14.0, new DexterityAbilityScoreDto(14.0, -1, 1, 2));
+        dexterityMap.put(14.51, new DexterityAbilityScoreDto(14.51, -1, 2, 2));
+        dexterityMap.put(15.0, new DexterityAbilityScoreDto(15.0, -2, 2, 2));
+        dexterityMap.put(15.51, new DexterityAbilityScoreDto(15.51, -2, 2, 3));
+        dexterityMap.put(16.0, new DexterityAbilityScoreDto(16.0, -2, 3, 3));
+        dexterityMap.put(16.51, new DexterityAbilityScoreDto(16.51, -3, 3, 3));
+        dexterityMap.put(17.0, new DexterityAbilityScoreDto(17.0, -3, 3, 4));
+        dexterityMap.put(17.51, new DexterityAbilityScoreDto(17.51, -3, 4, 4));
+        dexterityMap.put(18.0, new DexterityAbilityScoreDto(18.0, -4, 4, 4));
+        dexterityMap.put(18.51, new DexterityAbilityScoreDto(18.51, -4, 4, 5));
+        dexterityMap.put(19.0, new DexterityAbilityScoreDto(19.0, -4, 5, 5));
+        dexterityMap.put(19.51, new DexterityAbilityScoreDto(19.51, -5, 5, 5));
+        dexterityMap.put(20.0, new DexterityAbilityScoreDto(20.0, -5, 5, 6));
+        dexterityMap.put(20.51, new DexterityAbilityScoreDto(20.51, -5, 5, 6));
+        dexterityMap.put(21.0, new DexterityAbilityScoreDto(21.0, -5, 5, 6));
+        dexterityMap.put(21.51, new DexterityAbilityScoreDto(21.51, -5, 6, 6));
+        dexterityMap.put(22.0, new DexterityAbilityScoreDto(22.0, -6, 6, 6));
+        dexterityMap.put(22.51, new DexterityAbilityScoreDto(22.51, -6, 6, 7));
+        dexterityMap.put(23.0, new DexterityAbilityScoreDto(23.0, -6, 7, 7));
+        dexterityMap.put(23.51, new DexterityAbilityScoreDto(23.51, -7, 7, 7));
+        dexterityMap.put(24.0, new DexterityAbilityScoreDto(24.0, -7, 7, 8));
+        dexterityMap.put(24.51, new DexterityAbilityScoreDto(24.51, -7, 8, 8));
+        dexterityMap.put(25.0, new DexterityAbilityScoreDto(25.0, -8, 8, 8));
     }
 }
