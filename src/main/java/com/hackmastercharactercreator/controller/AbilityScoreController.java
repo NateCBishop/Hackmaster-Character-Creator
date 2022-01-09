@@ -25,4 +25,28 @@ public class AbilityScoreController {
         AbilityScoreDto dexterityAbilityScoreDto = abilityScoreService.getDexterityAbilityScoreStats(abilityScore);
         return dexterityAbilityScoreDto != null ? new ResponseEntity<>(dexterityAbilityScoreDto, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/constitution/{abilityScore}")
+    public ResponseEntity<AbilityScoreDto> getConstitutionAbilityScoreStats(@PathVariable Double abilityScore) {
+        AbilityScoreDto constitutionAbilityScoreStats = abilityScoreService.getConstitutionAbilityScoreStats(abilityScore);
+        return constitutionAbilityScoreStats != null ? new ResponseEntity<>(constitutionAbilityScoreStats, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/intelligence/{abilityScore}")
+    public ResponseEntity<AbilityScoreDto> getIntelligenceAbilityScoreStats(@PathVariable Double abilityScore) {
+        AbilityScoreDto intelligenceAbilityScoreStats = abilityScoreService.getIntelligenceAbilityScoreStats(abilityScore);
+        return intelligenceAbilityScoreStats != null ? new ResponseEntity<>(intelligenceAbilityScoreStats, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/wisdom/{abilityScore}")
+    public ResponseEntity<AbilityScoreDto> getWisdomAbilityScoreStats(@PathVariable Double abilityScore) {
+        AbilityScoreDto wisdomAbilityScoreStats = abilityScoreService.getWisdomAbilityScoreStats(abilityScore);
+        return wisdomAbilityScoreStats != null ? new ResponseEntity<>(wisdomAbilityScoreStats, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @GetMapping("/charisma/{abilityScore}")
+    public ResponseEntity<AbilityScoreDto> getCharismaAbilityScoreStats(@PathVariable Double abilityScore) {
+        AbilityScoreDto charismaAbilityScoreStats = abilityScoreService.getCharismaAbilityScoreStats(abilityScore);
+        return charismaAbilityScoreStats != null ? new ResponseEntity<>(charismaAbilityScoreStats, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

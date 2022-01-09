@@ -24,6 +24,26 @@ public class AbilityScoreService {
         return agilityMap.get(findClosestButNotMore(abilityScore, agilityMap));
     }
 
+    public AbilityScoreDto getConstitutionAbilityScoreStats(Double abilityScore) {
+        Map<Double, AbilityScoreDto> constitutionMap = abilityStore.getConstitutionMap();
+        return constitutionMap.get(findClosestButNotMore(abilityScore, constitutionMap));
+    }
+
+    public AbilityScoreDto getIntelligenceAbilityScoreStats(Double abilityScore) {
+        Map<Double, AbilityScoreDto> intelligenceMap = abilityStore.getIntelligenceMap();
+        return intelligenceMap.get(findClosestButNotMore(abilityScore, intelligenceMap));
+    }
+
+
+    public AbilityScoreDto getWisdomAbilityScoreStats(Double abilityScore) {
+        Map<Double, AbilityScoreDto> wisdomMap = abilityStore.getWisdomMap();
+        return wisdomMap.get(findClosestButNotMore(abilityScore, wisdomMap));
+    }
+
+    public AbilityScoreDto getCharismaAbilityScoreStats(Double abilityScore) {
+        Map<Double,AbilityScoreDto> charismaMap = abilityStore.getCharismaMap();
+        return charismaMap.get(findClosestButNotMore(abilityScore, charismaMap));
+    }
 
     private Double findClosestButNotMore(Double abilityScore, Map<Double, AbilityScoreDto> abilityScoreMap) {
         return abilityScoreMap.keySet()
@@ -32,4 +52,5 @@ public class AbilityScoreService {
                 .max(Comparator.naturalOrder())
                 .orElse(null);
     }
+
 }
