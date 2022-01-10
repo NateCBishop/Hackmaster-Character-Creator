@@ -2,7 +2,6 @@ package com.hackmastercharactercreator.service;
 
 import com.hackmastercharactercreator.dto.abilityScore.AbilityScoreDto;
 import com.hackmastercharactercreator.store.AbilityStore;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -11,8 +10,11 @@ import java.util.Map;
 @Service
 public class AbilityScoreService {
 
-    @Autowired
-    private AbilityStore abilityStore;
+    private final AbilityStore abilityStore;
+
+    public AbilityScoreService(AbilityStore abilityStore) {
+        this.abilityStore = abilityStore;
+    }
 
     public AbilityScoreDto getStrengthAbilityScoreStats(Double abilityScore) {
         Map<Double, AbilityScoreDto> strengthMap = abilityStore.getStrengthMap();
@@ -41,7 +43,7 @@ public class AbilityScoreService {
     }
 
     public AbilityScoreDto getCharismaAbilityScoreStats(Double abilityScore) {
-        Map<Double,AbilityScoreDto> charismaMap = abilityStore.getCharismaMap();
+        Map<Double, AbilityScoreDto> charismaMap = abilityStore.getCharismaMap();
         return charismaMap.get(findClosestButNotMore(abilityScore, charismaMap));
     }
 

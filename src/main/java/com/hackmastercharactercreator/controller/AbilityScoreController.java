@@ -2,7 +2,6 @@ package com.hackmastercharactercreator.controller;
 
 import com.hackmastercharactercreator.dto.abilityScore.AbilityScoreDto;
 import com.hackmastercharactercreator.service.AbilityScoreService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +10,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/ability")
 public class AbilityScoreController {
 
-    @Autowired
-    private AbilityScoreService abilityScoreService;
+    private final AbilityScoreService abilityScoreService;
+
+    public AbilityScoreController(AbilityScoreService abilityScoreService) {
+        this.abilityScoreService = abilityScoreService;
+    }
 
     @GetMapping("/strength/{abilityScore}")
     public ResponseEntity<AbilityScoreDto> getStrengthAbilityScoreStats(@PathVariable Double abilityScore) {
