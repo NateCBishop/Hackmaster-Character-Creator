@@ -1,6 +1,8 @@
 package com.hackmastercharactercreator.service;
 
 import com.hackmastercharactercreator.dto.abilityScore.AbilityScoreDto;
+import com.hackmastercharactercreator.dto.abilityScore.AggregateAbilityScoreDto;
+import com.hackmastercharactercreator.models.AbilityScorePostModel;
 import com.hackmastercharactercreator.store.AbilityStore;
 import org.springframework.stereotype.Service;
 
@@ -16,36 +18,18 @@ public class AbilityScoreService {
         this.abilityStore = abilityStore;
     }
 
-    public AbilityScoreDto getStrengthAbilityScoreStats(Double abilityScore) {
-        Map<Double, AbilityScoreDto> strengthMap = abilityStore.getStrengthMap();
-        return strengthMap.get(findClosestButNotMore(abilityScore, strengthMap));
+    public AggregateAbilityScoreDto generateAbilityScores(AbilityScorePostModel abilityScorePost) {
+        AggregateAbilityScoreDto aggregateAbilityScoreDto = new AggregateAbilityScoreDto();
+        aggregateAbilityScoreDto.setStrengthAbilityScoreStats(abilityStore.getStrengthMap().get(findClosestButNotMore(abilityScorePost.getStrengthAbilityScore(), abilityStore.getStrengthMap())));
+        aggregateAbilityScoreDto.setDexterityAbilityScoreStats(abilityStore.getDexterityMap().get(findClosestButNotMore(abilityScorePost.getDexterityAbilityScore(), abilityStore.getDexterityMap())));
+        aggregateAbilityScoreDto.setConstitutionAbilityScoreStats(abilityStore.getConstitutionMap().get(findClosestButNotMore(abilityScorePost.getConstitutionAbilityScore(), abilityStore.getConstitutionMap())));
+        aggregateAbilityScoreDto.setIntelligenceAbilityScoreStats(abilityStore.getIntelligenceMap().get(findClosestButNotMore(abilityScorePost.getIntelligenceAbilityScore(), abilityStore.getIntelligenceMap())));
+        aggregateAbilityScoreDto.setWisdomAbilityScoreStats(abilityStore.getWisdomMap().get(findClosestButNotMore(abilityScorePost.getWisdomAbilityScore(), abilityStore.getWisdomMap())));
+        aggregateAbilityScoreDto.setCharismaAbilityScoreStats(abilityStore.getCharismaMap().get(findClosestButNotMore(abilityScorePost.getCharismaAbilityScore(), abilityStore.getCharismaMap())));
+
+        return aggregateAbilityScoreDto;
     }
 
-    public AbilityScoreDto getDexterityAbilityScoreStats(Double abilityScore) {
-        Map<Double, AbilityScoreDto> agilityMap = abilityStore.getAgilityMap();
-        return agilityMap.get(findClosestButNotMore(abilityScore, agilityMap));
-    }
-
-    public AbilityScoreDto getConstitutionAbilityScoreStats(Double abilityScore) {
-        Map<Double, AbilityScoreDto> constitutionMap = abilityStore.getConstitutionMap();
-        return constitutionMap.get(findClosestButNotMore(abilityScore, constitutionMap));
-    }
-
-    public AbilityScoreDto getIntelligenceAbilityScoreStats(Double abilityScore) {
-        Map<Double, AbilityScoreDto> intelligenceMap = abilityStore.getIntelligenceMap();
-        return intelligenceMap.get(findClosestButNotMore(abilityScore, intelligenceMap));
-    }
-
-
-    public AbilityScoreDto getWisdomAbilityScoreStats(Double abilityScore) {
-        Map<Double, AbilityScoreDto> wisdomMap = abilityStore.getWisdomMap();
-        return wisdomMap.get(findClosestButNotMore(abilityScore, wisdomMap));
-    }
-
-    public AbilityScoreDto getCharismaAbilityScoreStats(Double abilityScore) {
-        Map<Double, AbilityScoreDto> charismaMap = abilityStore.getCharismaMap();
-        return charismaMap.get(findClosestButNotMore(abilityScore, charismaMap));
-    }
 
     private Double findClosestButNotMore(Double abilityScore, Map<Double, AbilityScoreDto> abilityScoreMap) {
         return abilityScoreMap.keySet()
@@ -54,5 +38,6 @@ public class AbilityScoreService {
                 .max(Comparator.naturalOrder())
                 .orElse(null);
     }
+
 
 }

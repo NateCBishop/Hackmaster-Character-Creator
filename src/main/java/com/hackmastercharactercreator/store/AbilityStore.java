@@ -10,12 +10,14 @@ import java.util.Map;
 
 @Component
 public class AbilityStore {
-    Map<Double, AbilityScoreDto> strengthMap = new HashMap<>();
-    Map<Double, AbilityScoreDto> dexterityMap = new HashMap<>();
-    Map<Double, AbilityScoreDto> constitutionMap = new HashMap<>();
-    Map<Double, AbilityScoreDto> intelligenceMap = new HashMap<>();
-    Map<Double, AbilityScoreDto> wisdomMap = new HashMap<>();
-    Map<Double, AbilityScoreDto> charismaMap = new HashMap<>();
+    private final Map<Double, AbilityScoreDto> strengthMap = new HashMap<>();
+    private final Map<Double, AbilityScoreDto> dexterityMap = new HashMap<>();
+    private final Map<Double, AbilityScoreDto> constitutionMap = new HashMap<>();
+    private final Map<Double, AbilityScoreDto> intelligenceMap = new HashMap<>();
+    private final Map<Double, AbilityScoreDto> wisdomMap = new HashMap<>();
+    private final Map<Double, AbilityScoreDto> charismaMap = new HashMap<>();
+    private final Map<Double, AbilityScoreDto> luckMap = new HashMap<>();
+
 
     @PostConstruct
     public void initMaps() {
@@ -31,7 +33,7 @@ public class AbilityStore {
         return strengthMap;
     }
 
-    public Map<Double, AbilityScoreDto> getAgilityMap() {
+    public Map<Double, AbilityScoreDto> getDexterityMap() {
         return dexterityMap;
     }
 
@@ -49,6 +51,10 @@ public class AbilityStore {
 
     public Map<Double, AbilityScoreDto> getCharismaMap() {
         return charismaMap;
+    }
+
+    public Map<Double, AbilityScoreDto> getLuckMap() {
+        return luckMap;
     }
 
     private void initStrengthMap() {
