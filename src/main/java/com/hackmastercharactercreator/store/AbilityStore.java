@@ -27,6 +27,7 @@ public class AbilityStore {
         initIntelligenceMap();
         initWisdomMap();
         initCharismaMap();
+        initLuckMap();
     }
 
     public Map<Double, AbilityScoreDto> getStrengthMap() {
@@ -273,6 +274,34 @@ public class AbilityStore {
         charismaMap.put(23.0, new CharismaAbilityScoreDto(23.0, 35, 18, 12, 6, 12));
         charismaMap.put(24.0, new CharismaAbilityScoreDto(24.0, 40, 20, 13, 7, 13));
         charismaMap.put(25.0, new CharismaAbilityScoreDto(25.0, 45, 20, 14, 8, 14));
+    }
+
+    private void initLuckMap() {
+        luckMap.put(1.0, new LuckAbilityScoreDto(1.0, 0, 0 , 0));
+        luckMap.put(2.0, new LuckAbilityScoreDto(2.0, 0, 0 , 0));
+        luckMap.put(3.0, new LuckAbilityScoreDto(3.0, 1, 0 , 0));
+        luckMap.put(4.0, new LuckAbilityScoreDto(4.0, 1, 0 , 1));
+        luckMap.put(5.0, new LuckAbilityScoreDto(5.0, 1, 0 , 1));
+        luckMap.put(6.0, new LuckAbilityScoreDto(6.0, 2, 0 , 2));
+        luckMap.put(7.0, new LuckAbilityScoreDto(7.0, 2, 0 , 3));
+        luckMap.put(8.0, new LuckAbilityScoreDto(8.0, 2, 1 , 4));
+        luckMap.put(9.0, new LuckAbilityScoreDto(9.0, 3, 1 , 5));
+        luckMap.put(10.0, new LuckAbilityScoreDto(10.0, 3, 1 , 5));
+        luckMap.put(11.0, new LuckAbilityScoreDto(11.0, 3, 2 , 5));
+        luckMap.put(12.0, new LuckAbilityScoreDto(12.0, 3, 2 , 5));
+        luckMap.put(13.0, new LuckAbilityScoreDto(13.0, 4, 2 , 6));
+        luckMap.put(14.0, new LuckAbilityScoreDto(14.0, 4, 3 , 7));
+        luckMap.put(15.0, new LuckAbilityScoreDto(15.0, 4, 3 , 8));
+        luckMap.put(16.0, new LuckAbilityScoreDto(16.0, 5, 3 , 9));
+        luckMap.put(17.0, new LuckAbilityScoreDto(17.0, 5, 3 , 10));
+        luckMap.put(18.0, new LuckAbilityScoreDto(18.0, 5, 3 , 10));
+        luckMap.put(19.0, new LuckAbilityScoreDto(19.0, 6, 3 , 11));
+        luckMap.put(20.0, new LuckAbilityScoreDto(20.0, 6, 3 , 12));
+        luckMap.put(21.0, new LuckAbilityScoreDto(21.0, 7, 4 , 13));
+        luckMap.put(22.0, new LuckAbilityScoreDto(22.0, 7, 4 , 14));
+        luckMap.put(23.0, new LuckAbilityScoreDto(23.0, 8, 4 , 15));
+        luckMap.put(24.0, new LuckAbilityScoreDto(24.0, 9, 4 , 18));
+        luckMap.put(25.0, new LuckAbilityScoreDto(25.0, 10, 5 , 20));
     }
 
 }

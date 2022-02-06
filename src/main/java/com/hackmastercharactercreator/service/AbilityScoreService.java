@@ -26,6 +26,7 @@ public class AbilityScoreService {
         aggregateAbilityScoreDto.setIntelligenceAbilityScoreStats(abilityStore.getIntelligenceMap().get(findClosestButNotMore(abilityScorePost.getIntelligenceAbilityScore(), abilityStore.getIntelligenceMap())));
         aggregateAbilityScoreDto.setWisdomAbilityScoreStats(abilityStore.getWisdomMap().get(findClosestButNotMore(abilityScorePost.getWisdomAbilityScore(), abilityStore.getWisdomMap())));
         aggregateAbilityScoreDto.setCharismaAbilityScoreStats(abilityStore.getCharismaMap().get(findClosestButNotMore(abilityScorePost.getCharismaAbilityScore(), abilityStore.getCharismaMap())));
+        aggregateAbilityScoreDto.setLuckAbilityScoreStats(abilityStore.getLuckMap().get(findClosestButNotMore(abilityScorePost.getLuckAbilityScore(), abilityStore.getLuckMap())));
 
         return aggregateAbilityScoreDto;
     }
